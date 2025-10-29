@@ -1,11 +1,18 @@
+import Link from "next/link";
+
 export default function Header() {
   return (
-    <header style={{ padding: 20, background: "#eee" }}>
-      <nav>
-        <a href="/">Главная</a> |{" "}
-        <a href="/contact">Контакты</a> | {" "}
-        <a href="/menu">Меню</a>
-      </nav>
+    <header style={{
+      display: "flex",
+      gap: "20px",
+      padding: "20px",
+      background: "#2ECC71",
+      color: "#fff",
+      fontWeight: "bold"
+    }}>
+      <Link href="/">Главная</Link>
+      <Link href="/menu">Меню</Link>
+      <Link href="/contacts">Контакты</Link>
     </header>
   );
 }
