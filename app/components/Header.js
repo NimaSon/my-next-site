@@ -4,7 +4,8 @@ export default function Header() {
       <nav>
         <a href="/">Главная</a> |{" "}
         <a href="/about">О нас</a> |{" "}
-        <a href="/contact">Контакты</a>
+        <a href="/contact">Контакты</a> | {" "}
+        <a href="/menu">Меню</a>
       </nav>
     </header>
   );
