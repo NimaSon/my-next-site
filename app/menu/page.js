@@ -2,144 +2,36 @@
 
 import Link from "next/link";
 
-export const metadata = {
-  title: "Меню | Order & Eat",
-};
-
 export default function MenuPage() {
-  const items = [
-    { name: "Пицца", img: "🍕" },
-    { name: "Бургеры", img: "🍔" },
-    { name: "Салаты", img: "🥗" },
-  ];
-
   return (
-    <main
-      style={{
-        minHeight: "100vh",
-        background: "linear-gradient(135deg, #ff9a9e 0%, #fad0c4 100%)",
-        display: "flex",
-        flexDirection: "column",
-        alignItems: "center",
-        padding: "40px 20px",
-        color: "#333",
-      }}
-    >
-      <h1 style={{ fontSize: "36px", marginBottom: "10px" }}>Меню FastDrop</h1>
-      <p style={{ fontSize: "18px", color: "#444", marginBottom: "30px" }}>
-        Доставляем еду по Астане быстро и вкусно!
-      </p>
+    <main className="min-h-screen flex flex-col items-center justify-center bg-gradient-to-br from-yellow-100 via-pink-100 to-orange-200">
+      <h1 className="text-4xl font-bold mb-2">Меню FastDrop</h1>
+      <p className="text-lg mb-8">Доставляем еду по Астане быстро и вкусно!</p>
 
-      {/* 🔹 Блок с навигационными кнопками */}
-      <nav
-        style={{
-          display: "flex",
-          gap: "15px",
-          marginBottom: "40px",
-          flexWrap: "wrap",
-          justifyContent: "center",
-        }}
-      >
+      <div className="flex gap-6 flex-wrap justify-center">
         <Link
-          href="/"
-          style={{
-            background: "#2ECC71",
-            color: "white",
-            padding: "10px 20px",
-            borderRadius: "8px",
-            textDecoration: "none",
-            fontWeight: "bold",
-            transition: "0.3s",
-          }}
+          href="/pizza"
+          className="w-40 h-40 flex flex-col items-center justify-center border-2 border-green-400 rounded-2xl bg-white/70 shadow-md hover:scale-105 transition-transform"
         >
-          Главная
+          <span className="text-4xl">🍕</span>
+          <span className="text-xl font-semibold">Пицца</span>
         </Link>
 
         <Link
-          href="/about"
-          style={{
-            background: "#3498DB",
-            color: "white",
-            padding: "10px 20px",
-            borderRadius: "8px",
-            textDecoration: "none",
-            fontWeight: "bold",
-            transition: "0.3s",
-          }}
+          href="/burgers"
+          className="w-40 h-40 flex flex-col items-center justify-center border-2 border-green-400 rounded-2xl bg-white/70 shadow-md hover:scale-105 transition-transform"
         >
-          О нас
+          <span className="text-4xl">🍔</span>
+          <span className="text-xl font-semibold">Бургеры</span>
         </Link>
 
         <Link
-          href="/contact"
-          style={{
-            background: "#9B59B6",
-            color: "white",
-            padding: "10px 20px",
-            borderRadius: "8px",
-            textDecoration: "none",
-            fontWeight: "bold",
-            transition: "0.3s",
-          }}
+          href="/salads"
+          className="w-40 h-40 flex flex-col items-center justify-center border-2 border-green-400 rounded-2xl bg-white/70 shadow-md hover:scale-105 transition-transform"
         >
-          Контакты
+          <span className="text-4xl">🥗</span>
+          <span className="text-xl font-semibold">Салаты</span>
         </Link>
-
-        <Link
-          href="/menu"
-          style={{
-            background: "#E67E22",
-            color: "white",
-            padding: "10px 20px",
-            borderRadius: "8px",
-            textDecoration: "none",
-            fontWeight: "bold",
-            transition: "0.3s",
-          }}
-        >
-          Меню
-        </Link>
-      </nav>
-
-      {/* 🔹 Список блюд */}
-      <div
-        style={{
-          display: "flex",
-          gap: "20px",
-          flexWrap: "wrap",
-          justifyContent: "center",
-        }}
-      >
-        {items.map((item) => (
-          <div
-            key={item.name}
-            className="menu-item"
-            style={{
-              padding: "20px",
-              border: "2px solid #2ECC71",
-              borderRadius: "12px",
-              width: "150px",
-              textAlign: "center",
-              fontSize: "22px",
-              backgroundColor: "white",
-              boxShadow: "0 4px 10px rgba(0,0,0,0.1)",
-              transition: "transform 0.3s, box-shadow 0.3s",
-            }}
-            onMouseEnter={(e) => {
-              e.currentTarget.style.transform = "scale(1.05)";
-              e.currentTarget.style.boxShadow = "0 6px 15px rgba(0,0,0,0.2)";
-            }}
-            onMouseLeave={(e) => {
-              e.currentTarget.style.transform = "scale(1)";
-              e.currentTarget.style.boxShadow = "0 4px 10px rgba(0,0,0,0.1)";
-            }}
-          >
-            <p style={{ fontSize: "40px", marginBottom: "10px" }}>
-              {item.img}
-            </p>
-            {item.name}
-          </div>
-        ))}
       </div>
     </main>
   );
