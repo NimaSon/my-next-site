@@ -1,36 +1,74 @@
+"use client";
+
 import Link from "next/link";
 
 export default function MenuPage() {
   return (
-    <main className="min-h-screen flex flex-col items-center justify-center bg-gradient-to-br from-yellow-100 via-pink-100 to-orange-200">
-      <h1 className="text-4xl font-bold mb-2">Меню FastDrop</h1>
-      <p className="text-lg mb-8">Выберите еду!</p>
+    <main
+      style={{
+        minHeight: "100vh",
+        background: "linear-gradient(135deg, #ff9a9e 0%, #fad0c4 100%)",
+        display: "flex",
+        flexDirection: "column",
+        alignItems: "center",
+        padding: "40px 20px",
+      }}
+    >
+      <h1 style={{ fontSize: "36px", marginBottom: "10px", color: "#222" }}>
+        Меню FastDrop
+      </h1>
+      <p style={{ fontSize: "18px", color: "#333", marginBottom: "30px" }}>
+        Выберите еду
+      </p>
 
-      <div className="flex gap-6 flex-wrap justify-center">
-        <Link
-          href="/pizza"
-          className="w-40 h-40 flex flex-col items-center justify-center border-2 border-green-400 rounded-2xl bg-white/70 shadow-md hover:scale-105 transition-transform"
-        >
-          <span className="text-4xl">🍕</span>
-          <span className="text-xl font-semibold">Пицца</span>
-        </Link>
 
-        <Link
-          href="/burgers"
-          className="w-40 h-40 flex flex-col items-center justify-center border-2 border-green-400 rounded-2xl bg-white/70 shadow-md hover:scale-105 transition-transform"
-        >
-          <span className="text-4xl">🍔</span>
-          <span className="text-xl font-semibold">Бургеры</span>
-        </Link>
-
-        <Link
-          href="/salads"
-          className="w-40 h-40 flex flex-col items-center justify-center border-2 border-green-400 rounded-2xl bg-white/70 shadow-md hover:scale-105 transition-transform"
-        >
-          <span className="text-4xl">🥗</span>
-          <span className="text-xl font-semibold">Салаты</span>
-        </Link>
+      {/* Основные категории */}
+      <div
+        style={{
+          display: "flex",
+          gap: "20px",
+          flexWrap: "wrap",
+          justifyContent: "center",
+        }}
+      >
+        <Link href="/menu/pizza" style={card("🍕", "Пицца")} />
+        <Link href="/menu/burgers" style={card("🍔", "Бургеры")} />
+        <Link href="/menu/salads" style={card("🥗", "Салаты")} />
       </div>
     </main>
   );
+}
+
+function btn(color) {
+  return {
+    background: color,
+    color: "white",
+    padding: "10px 20px",
+    borderRadius: "8px",
+    textDecoration: "none",
+    fontWeight: "bold",
+    transition: "0.3s",
+  };
+}
+
+function card(emoji, title) {
+  return {
+    display: "flex",
+    flexDirection: "column",
+    justifyContent: "center",
+    alignItems: "center",
+    backgroundColor: "white",
+    border: "2px solid #2ECC71",
+    borderRadius: "12px",
+    width: "150px",
+    height: "150px",
+    textAlign: "center",
+    fontSize: "22px",
+    boxShadow: "0 4px 10px rgba(0,0,0,0.1)",
+    textDecoration: "none",
+    color: "#333",
+    transition: "transform 0.3s, box-shadow 0.3s",
+    cursor: "pointer",
+    content: `"${emoji}\n${title}"`,
+  };
 }
