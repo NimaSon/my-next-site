@@ -1,5 +1,5 @@
 export const metadata = {
-  title: "Меню | FastDrop",
+  title: "Меню | Order & Eat",
 };
 
 export default function MenuPage() {
