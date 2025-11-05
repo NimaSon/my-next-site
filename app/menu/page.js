@@ -30,11 +30,14 @@ export default function MenuPage() {
         Доставляем еду по Астане быстро и вкусно!
       </p>
 
+      {/* 🔹 Блок с навигационными кнопками */}
       <nav
         style={{
           display: "flex",
           gap: "15px",
           marginBottom: "40px",
+          flexWrap: "wrap",
+          justifyContent: "center",
         }}
       >
         <Link
@@ -98,6 +101,7 @@ export default function MenuPage() {
         </Link>
       </nav>
 
+      {/* 🔹 Список блюд */}
       <div
         style={{
           display: "flex",
@@ -109,6 +113,7 @@ export default function MenuPage() {
         {items.map((item) => (
           <div
             key={item.name}
+            className="menu-item"
             style={{
               padding: "20px",
               border: "2px solid #2ECC71",
