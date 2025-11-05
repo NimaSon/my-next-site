@@ -1,10 +1,9 @@
+"use client";
+
 import Link from "next/link";
 
 export default function Home() {
   const items = [
-    { name: "Пицца", img: "🍕" },
-    { name: "Бургеры", img: "🍔" },
-    { name: "Салаты", img: "🥗" },
   ];
 
   return (
@@ -19,7 +18,7 @@ export default function Home() {
         color: "#333",
       }}
     >
-      <h1 style={{ fontSize: "36px", marginBottom: "10px" }}>Меню FastDrop</h1>
+      <h1 style={{ fontSize: "36px", marginBottom: "10px" }}>FastDrop</h1>
       <p style={{ fontSize: "18px", color: "#444", marginBottom: "30px" }}>
         Доставляем еду по Астане быстро и вкусно!
       </p>
@@ -33,12 +32,6 @@ export default function Home() {
           justifyContent: "center",
         }}
       >
-        <Link href="/" style={btn("#2ECC71")}>
-          Главная
-        </Link>
-        <Link href="/about" style={btn("#3498DB")}>
-          О нас
-        </Link>
         <Link href="/contact" style={btn("#9B59B6")}>
           Контакты
         </Link>

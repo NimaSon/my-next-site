@@ -10,7 +10,6 @@ export default function Header() {
       color: "#fff",
       fontWeight: "bold"
     }}>
-      <Link href="/">Главная</Link>
       <Link href="/menu">Меню</Link>
       <Link href="/contacts">Контакты</Link>
     </header>
