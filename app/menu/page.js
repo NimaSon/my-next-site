@@ -15,7 +15,7 @@ export default function MenuPage() {
       }}
     >
       <h1 style={{ fontSize: "36px", marginBottom: "10px", color: "#222" }}>
-        Меню FastDrop
+        Меню Order & Eat
       </h1>
       <p style={{ fontSize: "18px", color: "#333", marginBottom: "30px" }}>
         Выберите еду
