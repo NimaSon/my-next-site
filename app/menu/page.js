@@ -21,8 +21,6 @@ export default function MenuPage() {
         Выберите еду
       </p>
 
-
-      {/* Основные категории */}
       <div
         style={{
           display: "flex",

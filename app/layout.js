@@ -3,7 +3,7 @@ import Footer from "../components/Footer";
 import "./globals.css";
 
 export const metadata = {
-  title: "Многостраничный сайт",
+  title: "Order & Eat",
 };
 
 export default function RootLayout({ children }) {
