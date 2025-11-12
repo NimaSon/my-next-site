@@ -18,7 +18,7 @@ export default function MenuPage() {
         </Link>
 
         <Link href="/menu/salads" className="bg-white shadow-md rounded-2xl border-2 border-green-400 hover:scale-105 transition p-6 w-52">
-          <img src="/images/salad.jpg" alt="Салат" className="w-24 h-24 mx-auto mb-2" />
+          <img src="/images/salads.jpg" alt="Салат" className="w-24 h-24 mx-auto mb-2" />
           <h2 className="text-xl font-semibold">Салаты</h2>
         </Link>
       </div>

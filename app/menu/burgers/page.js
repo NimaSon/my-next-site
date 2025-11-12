@@ -5,6 +5,9 @@ export default function BurgersPage() {
   return (
     <main style={style}>
       <h1>Бургеры 🍔</h1>
+
+      <img src="/images/burgers.jpg" alt="Бургер" width="300" height="200" />
+
       <p>Выберите категорию:</p>
       <div style={list}>
         <Link href="/menu/burgers/sandwich" style={link}>Сендвич 🥪</Link>

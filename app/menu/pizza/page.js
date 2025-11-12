@@ -5,6 +5,9 @@ export default function PizzaPage() {
   return (
     <main style={style}>
       <h1>Пицца 🍕</h1>
+
+      <img src="/images/pizza.jpg" alt="Пицца" width="300" height="200" />
+
       <p>Выберите вид:</p>
       <div style={list}>
         <Link href="/menu/pizza/classic" style={link}>Классическая</Link>
