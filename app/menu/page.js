@@ -1,51 +1,35 @@
-import Link from "next/link";
+"use client";
+import Image from "next/image";
 
 export default function MenuPage() {
+  const items = [
+    { name: "Пицца", img: "/images/pizza.jpg" },
+    { name: "Бургер", img: "/images/burger.jpg" },
+    { name: "Салад", img: "/images/salad.jpg" },
+  ];
+
   return (
-    <main className="min-h-screen flex flex-col items-center justify-center bg-gradient-to-br from-pink-200 via-red-100 to-yellow-100 text-center">
-      <h1 className="text-5xl font-bold mb-3 text-gray-800">Order & Eat</h1>
-      <p className="text-lg mb-10 text-gray-700">Выберите еду</p>
+    <div className="min-h-screen flex flex-col items-center justify-center bg-gradient-to-b from-pink-200 to-pink-100 p-6">
+      <h1 className="text-4xl font-bold mb-2">Меню <span className="text-rose-600">Order & Eat</span></h1>
+      <p className="text-lg text-gray-700 mb-8">Выберите еду</p>
 
-      <div className="flex gap-8 flex-wrap justify-center">
-        {/* Пицца */}
-        <Link
-          href="/pizza"
-          className="w-44 h-44 flex flex-col items-center justify-center border-2 border-green-400 rounded-2xl bg-white/80 shadow-md hover:shadow-xl hover:scale-105 transition-all"
-        >
-          <img
-            src="https://cdn-icons-png.flaticon.com/512/1404/1404945.png"
-            alt="Пицца"
-            className="w-16 h-16 mb-3"
-          />
-          <span className="text-xl font-semibold text-gray-800">Пицца</span>
-        </Link>
-
-        {/* Бургеры */}
-        <Link
-          href="/burgers"
-          className="w-44 h-44 flex flex-col items-center justify-center border-2 border-green-400 rounded-2xl bg-white/80 shadow-md hover:shadow-xl hover:scale-105 transition-all"
-        >
-          <img
-            src="https://cdn-icons-png.flaticon.com/512/3075/3075977.png"
-            alt="Бургер"
-            className="w-16 h-16 mb-3"
-          />
-          <span className="text-xl font-semibold text-gray-800">Бургеры</span>
-        </Link>
-
-        {/* Салаты */}
-        <Link
-          href="/salads"
-          className="w-44 h-44 flex flex-col items-center justify-center border-2 border-green-400 rounded-2xl bg-white/80 shadow-md hover:shadow-xl hover:scale-105 transition-all"
-        >
-          <img
-            src="https://cdn-icons-png.flaticon.com/512/1046/1046784.png"
-            alt="Салат"
-            className="w-16 h-16 mb-3"
-          />
-          <span className="text-xl font-semibold text-gray-800">Салаты</span>
-        </Link>
+      <div className="grid grid-cols-1 sm:grid-cols-3 gap-8 w-full max-w-4xl">
+        {items.map((item, index) => (
+          <div
+            key={index}
+            className="bg-white p-4 rounded-2xl shadow-md hover:shadow-xl transition-shadow border border-green-400 flex flex-col items-center"
+          >
+            <Image
+              src={item.img}
+              alt={item.name}
+              width={200}
+              height={200}
+              className="rounded-xl object-contain"
+            />
+            <h2 className="text-xl font-semibold mt-3">{item.name}</h2>
+          </div>
+        ))}
       </div>
-    </main>
+    </div>
   );
 }
