@@ -1,9 +1,12 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #000000;
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #000000;
+    --foreground: #ffffff;
+  }
 }
+
 
 @theme {
   --color-background: var(--background);
@@ -26,6 +29,16 @@ body {
   color: var(--foreground);
   font-family: var(--font-sans);
   transition: background-color 0.3s, color 0.3s;
+}
+
+header {
+  background: #111;     /* тёмный фон */
+  color: white;         /* белый текст */
+}
+
+footer {
+  background: #111;
+  color: white;
 }
 
 * {

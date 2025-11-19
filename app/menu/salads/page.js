@@ -1,9 +1,18 @@
+"use client";
+import "./salads.css";
+import Link from "next/link";
+
 export default function SaladsPage() {
   return (
-    <div className="min-h-screen bg-gradient-to-br from-green-100 to-emerald-200 flex flex-col items-center justify-center text-center">
-      <h1 className="text-4xl font-bold mb-4">🥗 Салаты</h1>
-      <img src="/images/salads.jpg" alt="Салад" width="300" height="200" />
-      <p className="text-lg text-gray-700">Свежие и полезные салаты ждут вас!</p>
-    </div>
+    <main className="salads-container">
+      <h1 className="salads-title">Салаты 🥗</h1>
+      <p className="salads-sub">Выберите салат:</p>
+
+      <div className="salads-list">
+        <Link href="/menu/salads/greek" className="salad-link">Греческий</Link>
+        <Link href="/menu/salads/caesar" className="salad-link">Цезарь</Link>
+        <Link href="/menu/salads/olivier" className="salad-link">Оливье</Link>
+      </div>
+    </main>
   );
 }

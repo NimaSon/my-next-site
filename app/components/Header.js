@@ -6,7 +6,7 @@ export default function Header() {
       display: "flex",
       gap: "20px",
       padding: "20px",
-      background: "#2ECC71",
+      background: "#000000ff",
       color: "#fff",
       fontWeight: "bold"
     }}>

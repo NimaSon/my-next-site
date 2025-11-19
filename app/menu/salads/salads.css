@@ -1,0 +1,148 @@
+:root{
+  --bg: #ffffff;
+  --card-bg: #ffffff;
+  --muted-bg: #f7f7f8;
+  --accent: #4caf50;
+  --accent-hover: #3e8e41;
+  --text: #111827;
+  --soft-shadow: 0 6px 20px rgba(16,24,40,0.06);
+  --radius: 18px;
+  --gap: 18px;
+  --max-width: 720px;
+  --container-padding: 24px;
+}
+
+@media (prefers-color-scheme: dark){
+  :root{
+    --bg: #0b1020;
+    --card-bg: #071127;
+    --muted-bg: #071127;
+    --accent: #22c55e;
+    --accent-hover: #16a34a;
+    --text: #e6eef8;
+    --soft-shadow: 0 6px 24px rgba(2,6,23,0.7);
+  }
+}
+
+html, body {
+  height: 100%;
+  background: linear-gradient(180deg, var(--bg) 0%, var(--muted-bg) 100%);
+  color: var(--text);
+  font-family: Inter, Roboto, "Helvetica Neue", Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  margin: 0;
+  padding: 0;
+}
+
+.salads-container{
+  max-width: var(--max-width);
+  margin: 40px auto;
+  padding: var(--container-padding);
+  background: linear-gradient(180deg, rgba(255,255,255,0.6), rgba(255,255,255,0.35));
+  background-color: var(--card-bg);
+  border-radius: var(--radius);
+  box-shadow: var(--soft-shadow);
+  text-align: center;
+}
+
+.salads-title{
+  font-size: 32px;
+  font-weight: 700;
+  margin: 0 0 12px;
+  letter-spacing: -0.02em;
+}
+
+.salads-sub {
+  color: rgba(0,0,0,0.6);
+  margin-bottom: 18px;
+  font-size: 15px;
+}
+
+.salads-list{
+  display: flex;
+  gap: var(--gap);
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  margin-top: 8px;
+}
+
+.salad-link{
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 12px 18px;
+  min-width: 160px;
+  border-radius: 12px;
+  background: var(--accent);
+  color: white;
+  text-decoration: none;
+  font-weight: 600;
+  box-shadow: 0 6px 18px rgba(76,175,80,0.14);
+  transition: transform 160ms ease, box-shadow 160ms ease, background 160ms ease;
+  justify-content: center;
+}
+
+.salad-link:hover,
+.salad-link:focus{
+  transform: translateY(-3px);
+  background: var(--accent-hover);
+  box-shadow: 0 10px 28px rgba(16,24,40,0.12);
+  outline: none;
+}
+
+.salad-page{
+  max-width: 640px;
+  margin: 40px auto;
+  padding: 22px;
+  background: var(--card-bg);
+  border-radius: 16px;
+  box-shadow: var(--soft-shadow);
+}
+
+.salad-header{
+  font-size: 26px;
+  font-weight: 700;
+  margin-bottom: 8px;
+}
+
+.salad-desc{
+  margin-top: 12px;
+  font-size: 16px;
+  line-height: 1.5;
+  color: rgba(0,0,0,0.8);
+}
+
+.salad-image{
+  width: 100%;
+  max-width: 360px;
+  height: auto;
+  border-radius: 12px;
+  margin: 14px auto;
+  display: block;
+  object-fit: cover;
+}
+
+.order-btn{
+  display:inline-block;
+  margin-top:18px;
+  padding: 12px 20px;
+  border-radius: 12px;
+  background: linear-gradient(90deg,var(--accent),var(--accent-hover));
+  color: white;
+  font-weight: 700;
+  text-decoration: none;
+  transition: transform 150ms ease;
+}
+
+.order-btn:hover{
+  transform: translateY(-3px);
+}
+
+@media (max-width: 640px){
+  .salads-container{ margin: 20px 16px; padding: 16px; }
+  .salads-title{ font-size: 26px; }
+  .salad-link{ min-width: 140px; padding: 10px 14px; }
+  .salads-list{ gap: 12px; }
+}
