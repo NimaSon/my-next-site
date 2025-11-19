@@ -9,10 +9,22 @@ export default function PizzaPage() {
       <img src="/images/pizza.jpg" alt="Пицца" width="300" height="200" />
 
       <p>Выберите вид:</p>
-      <div style={list}>
-        <Link href="/menu/pizza/classic" style={link}>Классическая</Link>
-        <Link href="/menu/pizza/italian" style={link}>Итальянская</Link>
-        <Link href="/menu/pizza/hawaiian" style={link}>Гавайская</Link>
+
+      <div style={cards}>
+        <Link href="/menu/pizza/classic" style={card}>
+          <h3 style={title}>Классическая</h3>
+          <p style={desc}>Тесто, сыр моцарелла, колбаса, овощи, оливки</p>
+        </Link>
+
+        <Link href="/menu/pizza/italian" style={card}>
+          <h3 style={title}>Итальянская</h3>
+          <p style={desc}>Тонкое тесто, томаты, моцарелла, базилик</p>
+        </Link>
+
+        <Link href="/menu/pizza/hawaiian" style={card}>
+          <h3 style={title}>Гавайская</h3>
+          <p style={desc}>Курица, сыр, ананасы, фирменный соус</p>
+        </Link>
       </div>
     </main>
   );
@@ -28,12 +40,30 @@ const style = {
   color: "#333",
 };
 
-const list = { display: "flex", gap: "20px", marginTop: "20px" };
-const link = {
-  background: "#3498DB",
-  color: "white",
-  padding: "10px 20px",
-  borderRadius: "8px",
+const cards = {
+  display: "flex",
+  gap: "20px",
+  marginTop: "20px",
+};
+
+const card = {
+  background: "white",
+  width: "220px",
+  padding: "15px",
+  borderRadius: "12px",
   textDecoration: "none",
+  color: "#333",
+  boxShadow: "0 2px 8px rgba(0,0,0,0.1)",
+};
+
+const title = {
+  margin: "0 0 8px 0",
+  fontSize: "18px",
   fontWeight: "bold",
+};
+
+const desc = {
+  margin: 0,
+  fontSize: "14px",
+  opacity: 0.8,
 };
