@@ -5,6 +5,7 @@ return (
 <main className="p-8">
 <h1 className="text-3xl font-bold">Салат Цезарь</h1>
 <p className="mt-2">Классический салат с курицей.</p>
+<img src="/images/caesar.jpg" alt="Цезарь" />
 </main>
 );
 }
