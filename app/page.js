@@ -38,6 +38,8 @@ export default function Home() {
         <Link href="/menu" style={btn("#E67E22")}>
           Меню
         </Link>
+        <Link href="/signup" style={btn("rgba(3, 93, 14, 1)")}>Регистр</Link>
+        <Link href="/profile" style={btn("rgba(3, 93, 14, 1)")}>Профиль</Link>
       </nav>
 
       <div

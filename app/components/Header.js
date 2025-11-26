@@ -1,16 +1,11 @@
-import Link from "next/link";
+import AuthButtons from "./AuthButtons";
 
 export default function Header() {
   return (
-    <header style={{
-      display: "flex",
-      gap: "20px",
-      padding: "20px",
-      background: "#000000ff",
-      color: "#fff",
-      fontWeight: "bold"
-    }}>
-      <Link href="/">Главная</Link>
+    <header className="flex justify-between items-center p-4 shadow-md bg-white">
+      <h1 className="text-2xl font-bold">Order & Eat</h1>
+
+      <AuthButtons />
     </header>
-  );
+  );
 }
