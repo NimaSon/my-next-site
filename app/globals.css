@@ -33,12 +33,12 @@ body {
 
 header {
   background: #111;     /* тёмный фон */
-  color: white;         /* белый текст */
+  color: rgb(0, 0, 0);         /* белый текст */
 }
 
 footer {
   background: #111;
-  color: white;
+  color: rgb(0, 0, 0);
 }
 
 * {
