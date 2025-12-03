@@ -2,8 +2,12 @@
 
 import Link from "next/link";
 import CartWidget from "./CartWidget";
+import { useContext } from "react";
+import { AuthContext } from "../context/AuthContext";
 
 export default function Header() {
+  const { user, logout } = useContext(AuthContext);
+
   return (
     <header
       style={{
@@ -11,7 +15,7 @@ export default function Header() {
         justifyContent: "space-between",
         alignItems: "center",
         padding: "20px",
-        background: "#000000ff",
+        background: "#020202ff",
         boxShadow: "0 2px 8px rgba(0,0,0,0.1)",
       }}
     >
@@ -20,8 +24,31 @@ export default function Header() {
         <Link href="/">Главная</Link>
         <Link href="/menu">Меню</Link>
         <Link href="/contact">Контакты</Link>
-        <Link href="/login">Вход</Link>
-        <Link href="/signup">Регистрация</Link>
+
+        {user ? (
+          <>
+            <Link href="/profile">Профиль</Link>
+            <button
+              onClick={logout}
+              style={{
+                background: "#E74C3C",
+                color: "white",
+                padding: "6px 12px",
+                border: "none",
+                borderRadius: "6px",
+                cursor: "pointer",
+              }}
+            >
+              Выход
+            </button>
+          </>
+        ) : (
+          <>
+            <Link href="/login">Вход</Link>
+            <Link href="/signup">Регистрация</Link>
+          </>
+        )}
+
         <CartWidget />
       </nav>
     </header>

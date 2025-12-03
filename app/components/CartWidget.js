@@ -29,7 +29,7 @@ export default function CartWidget() {
             position: "absolute",
             top: "50px",
             right: 0,
-            background: "white",
+            background: "black",
             padding: "20px",
             borderRadius: "12px",
             boxShadow: "0 4px 20px rgba(0,0,0,0.2)",
