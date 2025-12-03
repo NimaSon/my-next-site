@@ -1,97 +1,57 @@
 "use client";
 
-import Link from "next/link";
-import "./globals.css";
+import { useContext } from "react";
+import { CartContext } from "./context/CartContext";
 
 export default function Home() {
   const items = [
+    { name: "Пицца Маргарита", img: "🍕", price: 1200 },
+    { name: "Суши сет", img: "🍣", price: 2500 },
+    { name: "Бургер Чиз", img: "🍔", price: 1500 },
   ];
+
+  const { addToCart } = useContext(CartContext);
 
   return (
     <main
       style={{
-        minHeight: "100vh",
-        background: "linear-gradient(135deg, #ff9a9e 0%, #fad0c4 100%)",
         display: "flex",
-        flexDirection: "column",
-        alignItems: "center",
-        padding: "40px 20px",
-        color: "#333",
+        gap: "20px",
+        flexWrap: "wrap",
+        padding: "20px",
       }}
     >
-      <h1 style={{ fontSize: "36px", marginBottom: "10px" }}>FastDrop</h1>
-      <p style={{ fontSize: "18px", color: "#444", marginBottom: "30px" }}>
-        Доставляем еду по Астане быстро и вкусно!
-      </p>
-
-      <nav
-        style={{
-          display: "flex",
-          gap: "15px",
-          marginBottom: "40px",
-          flexWrap: "wrap",
-          justifyContent: "center",
-        }}
-      >
-        <Link href="/contact" style={btn("#9B59B6")}>
-          Контакты
-        </Link>
-        <Link href="/menu" style={btn("#E67E22")}>
-          Меню
-        </Link>
-        <Link href="/signup" style={btn("rgba(3, 93, 14, 1)")}>Регистр</Link>
-        <Link href="/profile" style={btn("rgba(3, 93, 14, 1)")}>Профиль</Link>
-        <Link href="/login" style={btn("rgba(239, 243, 12, 1)")}>Логин</Link>
-      </nav>
-
-      <div
-        style={{
-          display: "flex",
-          gap: "20px",
-          flexWrap: "wrap",
-          justifyContent: "center",
-        }}
-      >
-        {items.map((item) => (
-          <div
-            key={item.name}
+      {items.map((item, idx) => (
+        <div
+          key={idx}
+          style={{
+            background: "white",
+            padding: "20px",
+            borderRadius: "12px",
+            boxShadow: "0 4px 15px rgba(0,0,0,0.1)",
+            textAlign: "center",
+            flex: "1 1 200px",
+          }}
+        >
+          <p style={{ fontSize: "50px" }}>{item.img}</p>
+          <h2 style={{ fontWeight: "bold" }}>{item.name}</h2>
+          <p>{item.price}₸</p>
+          <button
             style={{
-              padding: "20px",
-              border: "2px solid #2ECC71",
-              borderRadius: "12px",
-              width: "150px",
-              textAlign: "center",
-              fontSize: "22px",
-              backgroundColor: "white",
-              boxShadow: "0 4px 10px rgba(0,0,0,0.1)",
-              transition: "transform 0.3s, box-shadow 0.3s",
+              marginTop: "10px",
+              padding: "10px 20px",
+              background: "#E67E22",
+              color: "white",
+              border: "none",
+              borderRadius: "8px",
+              cursor: "pointer",
             }}
-            onMouseEnter={(e) => {
-              e.currentTarget.style.transform = "scale(1.05)";
-              e.currentTarget.style.boxShadow = "0 6px 15px rgba(0,0,0,0.2)";
-            }}
-            onMouseLeave={(e) => {
-              e.currentTarget.style.transform = "scale(1)";
-              e.currentTarget.style.boxShadow = "0 4px 10px rgba(0,0,0,0.1)";
-            }}
+            onClick={() => addToCart(item)}
           >
-            <p style={{ fontSize: "40px", marginBottom: "10px" }}>{item.img}</p>
-            {item.name}
-          </div>
-        ))}
-      </div>
+            Добавить в корзину
+          </button>
+        </div>
+      ))}
     </main>
   );
-}
-
-function btn(color) {
-  return {
-    background: color,
-    color: "white",
-    padding: "10px 20px",
-    borderRadius: "8px",
-    textDecoration: "none",
-    fontWeight: "bold",
-    transition: "0.3s",
-  };
 }

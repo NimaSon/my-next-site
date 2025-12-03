@@ -1,7 +1,14 @@
 export default function Footer() {
   return (
-    <footer style={{ padding: 20, background: "#ffffffff", marginTop: 20 }}>
-      © 2025 Наш супер-сайт 🚀
+    <footer
+      style={{
+        textAlign: "center",
+        padding: "20px",
+        background: "#f2f2f2",
+        marginTop: "40px",
+      }}
+    >
+      © 2025 Order & Eat. Все права защищены.
     </footer>
-  );
+  );
 }
