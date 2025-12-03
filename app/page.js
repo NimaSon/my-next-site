@@ -6,7 +6,8 @@ import { CartContext } from "./context/CartContext";
 export default function Home() {
   const items = [
     { name: "Пицца Маргарита", img: "🍕", price: 1200 },
-    { name: "Суши сет", img: "🍣", price: 2500 },
+    { name: "Салат Цезарь", img: "🥗", price: 2500 },
+    { name: "Салат Оливье", img: "🥗", price: 1500 },
     { name: "Бургер Чиз", img: "🍔", price: 1500 },
   ];
 
@@ -25,10 +26,10 @@ export default function Home() {
         <div
           key={idx}
           style={{
-            background: "white",
+            background: "black",
             padding: "20px",
             borderRadius: "12px",
-            boxShadow: "0 4px 15px rgba(0,0,0,0.1)",
+            boxShadow: "0 4px 15px rgba(0, 0, 0, 1)",
             textAlign: "center",
             flex: "1 1 200px",
           }}
