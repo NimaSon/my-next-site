@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import "./globals.css";
 
 export default function Home() {
   const items = [
@@ -40,6 +41,7 @@ export default function Home() {
         </Link>
         <Link href="/signup" style={btn("rgba(3, 93, 14, 1)")}>Регистр</Link>
         <Link href="/profile" style={btn("rgba(3, 93, 14, 1)")}>Профиль</Link>
+        <Link href="/login" style={btn("rgba(239, 243, 12, 1)")}>Логин</Link>
       </nav>
 
       <div

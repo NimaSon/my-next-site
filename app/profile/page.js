@@ -6,24 +6,34 @@ export default function ProfilePage() {
   const [user, setUser] = useState(null);
 
   useEffect(() => {
-    const savedUser = localStorage.getItem("user");
+    const loggedIn = localStorage.getItem("loggedIn");
+    const userData = localStorage.getItem("user");
 
-    if (!savedUser) {
+    if (!loggedIn || !userData) {
+      // Если не авторизован — редирект на логин
       window.location.href = "/login";
     } else {
-      setUser(JSON.parse(savedUser));
+      setUser(JSON.parse(userData));
     }
   }, []);
 
-  if (!user) return <p className="text-center mt-10">Loading...</p>;
+  const logout = () => {
+    localStorage.removeItem("loggedIn");
+    localStorage.removeItem("user");
+    window.location.href = "/login";
+  };
+
+  if (!user) return null;
 
   return (
-    <div className="flex flex-col items-center p-8">
-      <h1 className="text-3xl font-bold mb-4">Your Profile</h1>
-
-      <div className="bg-white p-6 shadow-lg rounded w-full max-w-md">
-        <p><strong>Email:</strong> {user.email}</p>
-      </div>
+    <div className="flex flex-col items-center justify-center min-h-screen bg-gray-100">
+      <h1 className="text-2xl font-bold mb-4">Добро пожаловать, {user.email}!</h1>
+      <button
+        onClick={logout}
+        className="bg-red-600 text-white p-3 rounded"
+      >
+        Выйти
+      </button>
     </div>
   );
 }
