@@ -1,38 +1,85 @@
 "use client";
-import Link from "next/link";
+import Link from 'next/link';
 
 export default function BurgersPage() {
   return (
-    <main style={style}>
+    <div style={style.page}>
+      <img
+        src="/images/burgers.jpg"
+        alt="Бургер"
+        width="300"
+        height="200"
+        style={style.image}
+      />
+
       <h1>Бургеры 🍔</h1>
-
-      <img src="/images/burgers.jpg" alt="Бургер" width="300" height="200" />
-
       <p>Выберите категорию:</p>
-      <div style={list}>
-        <Link href="/menu/burgers/sandwich" style={link}>Сендвич 🥪</Link>
-        <Link href="/menu/burgers/croissant" style={link}>Круассан 🥐</Link>
+
+      <div style={style.linksWrapper}>
+
+        {/* Сэндвич */}
+        <div style={style.item}>
+          <Link href="./menu/burgers/sandwich">
+            <button style={style.button}>Сэндвич 🥪</button>
+          </Link>
+
+          <p style={style.desc}>
+            Вкусные сэндвичи с овощами, сыром, мясом и свежей зеленью.
+          </p>
+        </div>
+
+        {/* Круассан */}
+        <div style={style.item}>
+          <Link href="/menu/burgers/croissant">
+            <button style={style.button}>Круассан 🥐</button>
+          </Link>
+
+          <p style={style.desc}>
+            Хрустящие круассаны с начинкой и мягким слоёным тестом.
+          </p>
+        </div>
+
       </div>
-    </main>
+    </div>
   );
 }
 
 const style = {
-  minHeight: "100vh",
-  display: "flex",
-  flexDirection: "column",
-  alignItems: "center",
-  justifyContent: "center",
-  background: "linear-gradient(135deg, #ffecd2 0%, #fcb69f 100%)",
-  color: "#333",
-};
+  page: {
+    textAlign: 'center',
+  },
 
-const list = { display: "flex", gap: "20px", marginTop: "20px" };
-const link = {
-  background: "#E67E22",
-  color: "white",
-  padding: "10px 20px",
-  borderRadius: "8px",
-  textDecoration: "none",
-  fontWeight: "bold",
+
+  linksWrapper: {
+    display: 'flex',
+    gap: '40px',
+    justifyContent: 'center',
+    marginTop: '20px'
+  },
+
+ image: {
+  display: "block",
+  margin: "0 auto",
+},
+
+  item: {
+    width: '180px',
+  },
+
+  button: {
+    padding: '12px 20px',
+    backgroundColor: '#E5B04A',
+    border: 'none',
+    borderRadius: '10px',
+    fontSize: '18px',
+    cursor: 'pointer',
+  },
+
+  desc: {
+    marginTop: '10px',
+    fontSize: '15px',
+    color: '#444',
+  }
+
+  
 };
