@@ -1,48 +1,95 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useContext } from "react";
+import { AuthContext } from "../context/AuthContext";
 
 export default function LoginPage() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const { login } = useContext(AuthContext);
   const [error, setError] = useState("");
 
-  const login = (e) => {
+  const handleLogin = (e) => {
     e.preventDefault();
 
-    const savedUser = JSON.parse(localStorage.getItem("user"));
-
-    if (!savedUser || savedUser.email !== email || savedUser.password !== password) {
-      setError("Invalid email or password");
+    // Получаем пользователя из localStorage
+    const storedUser = localStorage.getItem("user");
+    if (!storedUser) {
+      setError("Пользователь не найден. Зарегистрируйтесь.");
       return;
     }
 
-    window.location.href = "/profile";
+    const userData = JSON.parse(storedUser);
+
+    if (email === userData.email && password === userData.password) {
+      login(userData); // сохраняем пользователя в контекст
+      window.location.href = "/profile"; // редирект на профиль
+    } else {
+      setError("Неверный email или пароль");
+    }
   };
 
   return (
-    <div className="flex justify-center items-center min-h-screen">
-      <form onSubmit={login} className="p-6 bg-white shadow-lg rounded w-full max-w-md">
-        <h1 className="text-2xl font-bold mb-4">Login</h1>
+    <main
+      style={{
+        minHeight: "80vh",
+        display: "flex",
+        justifyContent: "center",
+        alignItems: "center",
+      }}
+    >
+      <form
+        onSubmit={handleLogin}
+        style={{
+          display: "flex",
+          flexDirection: "column",
+          gap: "15px",
+          padding: "30px",
+          background: "white",
+          borderRadius: "12px",
+          boxShadow: "0 4px 15px rgba(0,0,0,0.1)",
+          width: "300px",
+        }}
+      >
+        <h1 style={{ textAlign: "center", marginBottom: "10px" }}>Вход</h1>
 
-        {error && <p className="text-red-600">{error}</p>}
+        {error && (
+          <p style={{ color: "red", textAlign: "center", marginBottom: "10px" }}>{error}</p>
+        )}
 
         <input
           type="email"
           placeholder="Email"
-          className="w-full p-3 border mb-3 rounded"
+          value={email}
           onChange={(e) => setEmail(e.target.value)}
+          required
+          style={{ padding: "10px", borderRadius: "6px", border: "1px solid #ccc" }}
         />
 
         <input
           type="password"
-          placeholder="Password"
-          className="w-full p-3 border mb-3 rounded"
+          placeholder="Пароль"
+          value={password}
           onChange={(e) => setPassword(e.target.value)}
+          required
+          style={{ padding: "10px", borderRadius: "6px", border: "1px solid #ccc" }}
         />
 
-        <button className="w-full bg-blue-600 text-white p-3 rounded">Login</button>
+        <button
+          type="submit"
+          style={{
+            padding: "12px",
+            background: "#3498DB",
+            color: "white",
+            border: "none",
+            borderRadius: "8px",
+            cursor: "pointer",
+            fontWeight: "bold",
+          }}
+        >
+          Войти
+        </button>
       </form>
-    </div>
+    </main>
   );
 }

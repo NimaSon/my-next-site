@@ -19,7 +19,7 @@ export default function BurgersPage() {
 
         {/* Сэндвич */}
         <div style={style.item}>
-          <Link href="./menu/burgers/sandwich">
+          <Link href="burgers/sandwich">
             <button style={style.button}>Сэндвич 🥪</button>
           </Link>
 
@@ -30,7 +30,7 @@ export default function BurgersPage() {
 
         {/* Круассан */}
         <div style={style.item}>
-          <Link href="/menu/burgers/croissant">
+          <Link href="/menu/burgers/сroissant">
             <button style={style.button}>Круассан 🥐</button>
           </Link>
 
