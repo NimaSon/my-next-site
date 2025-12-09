@@ -30,7 +30,7 @@ export default function BurgersPage() {
 
         {/* Круассан */}
         <div style={style.item}>
-          <Link href="/menu/burgers/сroissant">
+          <Link href="/menu/burgers/croissant">
             <button style={style.button}>Круассан 🥐</button>
           </Link>
 
