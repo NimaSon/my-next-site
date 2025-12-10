@@ -1,20 +1,16 @@
-import Header from "./components/Header";
-import Footer from "./components/Footer";
-import { CartProvider } from "./context/CartContext";
-import { AuthProvider } from "./context/AuthContext";
-import "./globals.css";
+import { CartProvider } from "@/app/context/CartContext";
+import Header from "@/app/components/Header";
+import Footer from "@/app/components/Footer";
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="ru">
+    <html>
       <body>
-        <AuthProvider>
-          <CartProvider>
-            <Header />
-            <main>{children}</main>
-            <Footer />
-          </CartProvider>
-        </AuthProvider>
+        <CartProvider>
+          <Header />
+          <main>{children}</main>
+          <Footer />
+        </CartProvider>
       </body>
     </html>
   );
