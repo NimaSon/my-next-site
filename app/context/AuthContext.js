@@ -7,14 +7,13 @@ export const AuthContext = createContext();
 export function AuthProvider({ children }) {
   const [user, setUser] = useState(null);
 
-  // Загружаем пользователя из localStorage при старте
   useEffect(() => {
     const storedUser = localStorage.getItem("user");
     if (storedUser) setUser(JSON.parse(storedUser));
   }, []);
 
   const login = (email, password) => {
-    const loggedUser = { email }; // Можно добавить больше данных
+    const loggedUser = { email };
     setUser(loggedUser);
     localStorage.setItem("user", JSON.stringify(loggedUser));
   };

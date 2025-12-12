@@ -23,7 +23,6 @@ export default function Header() {
         zIndex: 1000,
       }}
     >
-      {/* Навигация слева */}
       <nav style={{ display: "flex", gap: "10px" }}>
         <Link href="/"><button>Главная</button></Link>
         <Link href="/menu"><button>Меню</button></Link>
@@ -31,7 +30,6 @@ export default function Header() {
         <Link href="/profile"><button>Профиль</button></Link>
       </nav>
 
-      {/* Аутентификация и корзина справа */}
       <div style={{ display: "flex", alignItems: "center", gap: "10px" }}>
         {user ? (
           <>

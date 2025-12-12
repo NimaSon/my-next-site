@@ -21,7 +21,6 @@ export default function LoginPage() {
   const handleSubmit = (e) => {
     e.preventDefault();
     login(formData.email, formData.password);
-    // Можно очистить форму
     setFormData({ email: "", password: "" });
   };
 

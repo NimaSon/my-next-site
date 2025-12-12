@@ -8,14 +8,13 @@ export default function ProfilePage() {
   const { user } = useContext(AuthContext);
   const router = useRouter();
 
-  // Если пользователь не авторизован, редирект на логин
   useEffect(() => {
     if (!user) {
       router.push("/login");
     }
   }, [user, router]);
 
-  if (!user) return null; // Пока редирект не сработал
+  if (!user) return null;
 
   return (
     <div style={{ padding: "20px" }}>
