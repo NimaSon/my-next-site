@@ -7,7 +7,7 @@ export default function CroissantPage() {
   const { addToCart } = useContext(CartContext);
 
   const item = {
-    name: "Круассан-сэндвич",
+    name: "Круассан-бургер",
     img: "🥐",
     price: 1700,
     description:
