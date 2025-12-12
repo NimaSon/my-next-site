@@ -13,19 +13,25 @@ export function AuthProvider({ children }) {
     if (storedUser) setUser(JSON.parse(storedUser));
   }, []);
 
-  const login = (userData) => {
-    localStorage.setItem("user", JSON.stringify(userData));
-    setUser(userData);
+  const login = (email, password) => {
+    const loggedUser = { email }; // Можно добавить больше данных
+    setUser(loggedUser);
+    localStorage.setItem("user", JSON.stringify(loggedUser));
+  };
+
+  const signup = (email, password) => {
+    const newUser = { email };
+    setUser(newUser);
+    localStorage.setItem("user", JSON.stringify(newUser));
   };
 
   const logout = () => {
-    localStorage.removeItem("user");
     setUser(null);
-    window.location.href = "/"; // редирект на главную
+    localStorage.removeItem("user");
   };
 
   return (
-    <AuthContext.Provider value={{ user, login, logout }}>
+    <AuthContext.Provider value={{ user, login, signup, logout }}>
       {children}
     </AuthContext.Provider>
   );

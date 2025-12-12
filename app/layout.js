@@ -1,16 +1,19 @@
-import { CartProvider } from "@/app/context/CartContext";
-import Header from "@/app/components/Header";
-import Footer from "@/app/components/Footer";
+"use client";
+
+import { CartProvider } from "./context/CartContext";
+import { AuthProvider } from "./context/AuthContext";
+import Header from "./components/Header";
 
 export default function RootLayout({ children }) {
   return (
     <html>
       <body>
-        <CartProvider>
-          <Header />
-          <main>{children}</main>
-          <Footer />
-        </CartProvider>
+        <AuthProvider>
+          <CartProvider>
+            <Header />
+            <main>{children}</main>
+          </CartProvider>
+        </AuthProvider>
       </body>
     </html>
   );

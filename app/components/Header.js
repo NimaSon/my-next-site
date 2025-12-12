@@ -1,11 +1,12 @@
 "use client";
 
 import Link from "next/link";
-import CartWidget from "./CartWidget";
 import { useContext } from "react";
+import { CartContext } from "../context/CartContext";
 import { AuthContext } from "../context/AuthContext";
 
 export default function Header() {
+  const { cart } = useContext(CartContext);
   const { user, logout } = useContext(AuthContext);
 
   return (
@@ -14,43 +15,37 @@ export default function Header() {
         display: "flex",
         justifyContent: "space-between",
         alignItems: "center",
-        padding: "20px",
-        background: "#020202ff",
-        boxShadow: "0 2px 8px rgba(0,0,0,0.1)",
+        padding: "10px 20px",
+        background: "#333",
+        color: "white",
+        position: "sticky",
+        top: 0,
+        zIndex: 1000,
       }}
     >
-      <h1 style={{ fontSize: "24px", fontWeight: "bold" }}>Order & Eat</h1>
-      <nav style={{ display: "flex", gap: "15px", alignItems: "center" }}>
-        <Link href="/">Главная</Link>
-        <Link href="/menu">Меню</Link>
-        <Link href="/contact">Контакты</Link>
+      {/* Навигация слева */}
+      <nav style={{ display: "flex", gap: "10px" }}>
+        <Link href="/"><button>Главная</button></Link>
+        <Link href="/menu"><button>Меню</button></Link>
+        <Link href="/contact"><button>Контакты</button></Link>
+        <Link href="/profile"><button>Профиль</button></Link>
+      </nav>
 
+      {/* Аутентификация и корзина справа */}
+      <div style={{ display: "flex", alignItems: "center", gap: "10px" }}>
         {user ? (
           <>
-            <Link href="/profile">Профиль</Link>
-            <button
-              onClick={logout}
-              style={{
-                background: "#E74C3C",
-                color: "white",
-                padding: "6px 12px",
-                border: "none",
-                borderRadius: "6px",
-                cursor: "pointer",
-              }}
-            >
-              Выход
-            </button>
+            <span>{user.name}</span>
+            <button onClick={logout}>Выйти</button>
           </>
         ) : (
           <>
-            <Link href="/login">Вход</Link>
-            <Link href="/signup">Регистрация</Link>
+            <Link href="/login"><button>Войти</button></Link>
+            <Link href="/signup"><button>Регистрация</button></Link>
           </>
         )}
-
-        <CartWidget />
-      </nav>
+        <span>Корзина: {cart.length} шт.</span>
+      </div>
     </header>
   );
 }
